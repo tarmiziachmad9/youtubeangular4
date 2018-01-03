@@ -1,0 +1,31 @@
+<md-sidenav-container class="sidenav-container">
+  <md-sidenav #sidenav mode="side" opened="false">
+    <div class="sidenav-scrolling-content">
+      <span class="mobile-sidenav-hamburger" (click)="sidenav.toggle()">
+    	<md-icon>keyboard_backspace</md-icon>
+  	  </span>
+    	<md-list>
+	  	 <h3 md-subheader>Trending</h3>
+		  <md-list-item>
+		    <md-icon md-list-icon>trending_up</md-icon>
+		    <h4 md-line>Trending</h4>
+		  </md-list-item>
+		  <md-divider></md-divider>
+		  <h3 md-subheader>Categories</h3>
+		  <md-list-item>
+		    <md-icon md-list-icon>sort</md-icon>
+		    <h4 md-line>Category 1</h4>
+		  </md-list-item>
+		</md-list>
+    </div>
+  </md-sidenav>
+  <span class="sidenav-hamburger" (click)="sidenav.toggle()">
+    <md-icon>menu</md-icon>
+  </span>
+
+<app-primary-nav></app-primary-nav>
+<div id="apps">
+<router-outlet></router-outlet>
+</div>
+
+</md-sidenav-container>

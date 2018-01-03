@@ -1,0 +1,31 @@
+<section class="loader-overlay" *ngIf="loader" >
+<md-progress-bar mode="indeterminate" color="warn"></md-progress-bar>
+</section>
+<div class="search-content">
+	<div class="container">
+		<div class="app-content">
+			<div class="app-content-section">
+				<section class="back-to-video">
+					<md-icon (click)="back()">keyboard_backspace</md-icon> <span>back</span>
+				</section>
+				<md-list>
+				 <h3 md-subheader>File to download</h3>
+					<div *ngIf="Errors" class="error">
+						<md-icon (click)="reload()" style="font-size: 50px; color: #cc181e; cursor: pointer;">replay</md-icon> <br><br>
+						 Cannot retrieve data, please reload this page!!
+					</div>
+				  <div *ngIf="spinner">
+					<md-spinner class="spinner-search-overlay" color="warn" style="width:50px;"></md-spinner>
+				  </div>
+				  <md-list-item *ngFor=" let download of API">
+				    <md-icon md-list-icon>folder</md-icon>
+				    <h4 md-line>{{download.quality}}</h4>
+				    <p md-line> {{download.size}} </p>
+				    <span class="app-spacer"></span>
+				    <button md-button><a href="{{download.url}}">Download</a></button>
+				  </md-list-item>
+				</md-list>
+			</div>
+		</div>
+	</div>
+</div>

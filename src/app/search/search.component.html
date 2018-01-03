@@ -1,0 +1,69 @@
+<section class="loader-overlay" *ngIf="loader" >
+<md-progress-bar mode="indeterminate" color="warn"></md-progress-bar>
+</section>
+<section class="search-input">
+	<!-- <input [(ngModel)]="Query" class="search-form"> -->
+	<input [(ngModel)]="searchInput" class="search-form">
+	<span class="app-spacer"></span>
+	<div class="search-button">
+	<a (click)="getQuery()"><md-icon class="app-icon">search</md-icon></a>
+	</div>
+</section>
+<section class="back-to">
+	<button md-mini-fab (click)="back()"><md-icon>keyboard_backspace</md-icon></button>
+</section>
+
+<div class="search-content">
+	<div class="container">
+		<div class="app-content">
+			<div class="app-content-section">
+				<div *ngIf="spinner" class="spinner-search">
+					<md-spinner class="spinner-search-overlay" color="warn" style="width:50px;"></md-spinner>
+				</div>
+				<div class="app-content-section-list">
+					<div *ngFor=" let search of searchQuery">
+						<div *ngFor=" let counter of StatisticsVideo">
+							<div *ngIf=" search.id.videoId == counter.id">
+								<div class="app-content-section-list-app">
+									<md-card>
+									  <img md-card-image src="{{search.snippet.thumbnails.medium.url}}" alt=" {{search.snippet.title}}">
+									  <md-card-header>
+										<!--<img md-card-avatar src="{{search.snippet.thumbnails.medium.url}}" alt=" {{search.snippet.title}}"> -->
+									    <md-card-title><h3><a routerLink="/watch/{{search.id.videoId}}">{{search.snippet.title}}</a></h3></md-card-title>
+									    <md-card-subtitle>
+									    {{search.snippet.channelTitle}}
+									    </md-card-subtitle>
+									    <md-card-subtitle>
+									    {{search.snippet.publishedAt | timeAgo}} / {{counter.statistics.viewCount | number:'.0'}} views
+									    </md-card-subtitle>
+									    <span class="app-spacer"></span>
+
+									    <button md-icon-button [mdMenuTriggerFor]="menu">
+										  <md-icon>more_vert</md-icon>
+										</button>
+
+										<md-menu #menu="mdMenu" class="menu-action">
+										  <button md-menu-item>
+										    <md-icon>dialpad</md-icon>
+										    <span>Redial</span>
+										  </button>
+										  <button md-menu-item disabled>
+										    <md-icon>voicemail</md-icon>
+										    <span>Check voicemail</span>
+										  </button>
+										  <button md-menu-item>
+										    <md-icon>notifications_off</md-icon>
+										    <span>Disable alerts</span>
+										  </button>
+										</md-menu>
+									  </md-card-header>
+									</md-card>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

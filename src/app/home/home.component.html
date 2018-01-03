@@ -1,0 +1,67 @@
+<section class="loader-overlay" *ngIf="loader" >
+<md-progress-bar mode="indeterminate" color="warn"></md-progress-bar>
+</section>
+<div class="primary">
+	<div id="app-name">
+  		<h1>Angular Material</h1>
+  		<h2>Simple app build with angular 4</h2>
+  	</div>
+</div>
+
+<div class="container">
+	<div class="app-content">
+		<div class="app-content-section">
+			<div *ngIf="Errors" class="error">
+				<a routerLink="/"><md-icon style="font-size: 50px; color: #cc181e; cursor: pointer;">replay</md-icon></a> <br><br>
+				Cannot retrieve data, please reload this page!!
+			</div>
+			<div class="app-content-section-list"            
+			infinite-scroll
+            [infiniteScrollDistance]="0"
+            [infiniteScrollThrottle]="500"
+            (scrolled)="onScroll()">
+				<md-spinner *ngIf="spinner" class="spinner" color="warn" style="width:50px;"></md-spinner>
+				<div *ngFor=" let trending of List">
+					<div *ngFor=" let counter of Count">
+						<div *ngIf=" trending.id == counter.id">
+							<div class="app-content-section-list-app">
+								<md-card>
+								  <img md-card-image src="{{trending.snippet.thumbnails.medium.url}}" alt=" {{trending.snippet.title}}">
+								  <md-card-header>
+								    <md-card-title><h3><a routerLink="/watch/{{trending.id}}">{{trending.snippet.title}}</a></h3></md-card-title>
+								    <md-card-subtitle>
+								    {{trending.snippet.channelTitle}} 
+								    </md-card-subtitle>
+								    <md-card-subtitle>
+								    {{trending.snippet.publishedAt | timeAgo}} / {{counter.statistics.viewCount | number:'.0'}} views
+								    </md-card-subtitle>
+								    <span class="app-spacer"></span>
+
+								    <button md-icon-button [mdMenuTriggerFor]="menu">
+									  <md-icon>more_vert</md-icon>
+									</button>
+
+									<md-menu #menu="mdMenu" class="menu-action">
+									  <button md-menu-item>
+									    <md-icon>dialpad</md-icon>
+									    <span>Redial</span>
+									  </button>
+									  <button md-menu-item disabled>
+									    <md-icon>voicemail</md-icon>
+									    <span>Check voicemail</span>
+									  </button>
+									  <button md-menu-item>
+									    <md-icon>notifications_off</md-icon>
+									    <span>Disable alerts</span>
+									  </button>
+									</md-menu>
+								  </md-card-header>
+								</md-card>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

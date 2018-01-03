@@ -1,0 +1,37 @@
+header {
+	padding: 0;
+	margin: 0;
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9;
+}
+header .mat-toolbar.mat-primary {
+    background: #cc181e;
+    color: rgba(255,255,255,.87);
+}
+header a {
+	color: hsla(0,0%,100%,.87) !important;
+}
+.navigation {
+	margin-left: 40px;
+}
+.app-icon {
+  	position: relative;
+  	top: 3px;
+  	padding: 0 14px;
+}
+
+span.app-nav {
+	padding-left: 14px;
+	padding-right: 14px;
+}
+.app-spacer {
+  flex: 1 1 auto;
+}
+@media(max-width: 768px) {
+	.app-icon {
+		top: 4px;
+	}
+}

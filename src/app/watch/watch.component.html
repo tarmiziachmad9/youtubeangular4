@@ -1,0 +1,86 @@
+<section class="loader-overlay" *ngIf="loader" >
+<md-progress-bar mode="indeterminate" color="warn"></md-progress-bar>
+</section>
+
+<div class="container">
+	<div class="app-video">
+		<div *ngIf="Errors" class="error">
+			<md-icon (click)="reload()" style="font-size: 50px; color: #cc181e; cursor: pointer;">replay</md-icon> <br><br>
+			Cannot retrieve data, please reload this page!!
+		</div>
+		<div class="app-iframe">
+			<iframe [src]="safeUrl" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</div>
+
+	<div class="app-single">
+			<md-card *ngFor=" let details of VideoDetails">
+			  <md-card-header>
+			  	<img *ngFor=" let channel of ChannelVideo" md-card-avatar src="{{channel.snippet.thumbnails.default.url}}" alt=" {{details.snippet.title}}"> 
+			    <md-card-title><h3>{{details.snippet.title}}</h3></md-card-title>
+			    <md-card-subtitle>{{details.snippet.channelTitle}} / {{details.snippet.publishedAt | timeAgo}} / {{details.statistics.viewCount | number:'.0'}} views</md-card-subtitle>
+			  </md-card-header>
+			  <md-card-actions>
+			  	 <button md-button>SHARE</button>
+			    <button md-button><a routerLink="/download/{{details.id}}">DOWNLOAD</a></button>
+			  </md-card-actions>
+			</md-card>
+
+			<div class="app-single-section">
+				<md-spinner *ngIf="spinner" class="spinner" color="warn" style="width:50px;"></md-spinner>
+				<div class="app-content-section-list">
+					<div *ngFor=" let related of RelatedVideo">
+						<div *ngFor=" let counter of StatisticsVideo">
+							<div *ngIf=" related.id.videoId == counter.id">
+								<div class="app-content-section-list-app">
+									<md-card>
+								  		<img md-card-image src="{{related.snippet.thumbnails.medium.url}}" alt=" {{related.snippet.title}}">
+
+											<md-card-header>
+												<!-- <img md-card-avatar src="{{channelThumb.snippet.thumbnails.medium.url}}" alt=" {{related.snippet.title"> -->
+											    <md-card-title><h3><a routerLink="/watch/{{related.id.videoId}}">
+											    {{related.snippet.title}}</a></h3></md-card-title>
+											     <!-- <md-card-title><h3><a (click)="reload(related.id.videoId)">{{related.snippet.title}})</a></h3></md-card-title> -->
+											    <md-card-subtitle>
+											    {{related.snippet.channelTitle}}
+											    </md-card-subtitle>
+											    <md-card-subtitle>
+											    {{related.snippet.publishedAt | timeAgo}} / {{counter.statistics.viewCount | number:'.0'}} views
+											    </md-card-subtitle>
+											    <span class="app-spacer"></span>
+
+											    <button md-icon-button [mdMenuTriggerFor]="menu">
+												  <md-icon>more_vert</md-icon>
+												</button>
+
+												<md-menu #menu="mdMenu" class="menu-action">
+												  <button md-menu-item>
+												    <md-icon>dialpad</md-icon>
+												    <span>Redial</span>
+												  </button>
+												  <button md-menu-item disabled>
+												    <md-icon>voicemail</md-icon>
+												    <span>Check voicemail</span>
+												  </button>
+												  <button md-menu-item>
+												    <md-icon>notifications_off</md-icon>
+												    <span>Disable alerts</span>
+												  </button>
+												</md-menu>
+										  	</md-card-header>
+
+									</md-card>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</div>
+
+</div>
+
+
+
+

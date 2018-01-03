@@ -1,0 +1,335 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/material-icon/material-icons.css';
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body, * {
+    font-family: 'Roboto', sans-serif;
+}
+a {
+	color: rgba(0,0,0,.87);
+    cursor: pointer;
+    text-decoration: none;
+}
+.app-spacer {
+  flex: 1 1 auto;
+}
+.app-iframe {
+	position:relative;
+	padding-bottom: 60%;
+    height: 0;
+    overflow: hidden;
+}
+.app-iframe iframe {
+	width:100%; 
+	height:90%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index: 8
+}
+.container{
+	margin: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.heading-h {
+	margin: auto;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+#apps {
+	margin-top: 60px;
+}
+#app-name {
+	margin: auto;
+	font: 400 Roboto,Helvetica Neue,sans-serif;
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 150px;
+}
+#app-name h1 {
+	font-size: 54px;
+    padding-bottom: 15px;
+}
+#app-name h2 {
+	font-size: 19px;
+}
+.app-content {
+	max-width: 900px;
+	margin: auto;
+	margin-top: -80px;
+	background-color: #fff;
+}
+.app-content-section {
+	padding: 20px;
+}
+.app-content-section-list{
+	display: flex;
+	display: -webkit-flexbox;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.app-content-section-list-app {
+	width: 420px;
+	margin-bottom: 20px;
+}
+.app-content-section-list-app a {
+	color: rgba(0,0,0,.87);
+}
+.app-single {
+	max-width: 860px;
+	margin: auto;
+	background-color: #fff;
+}
+.app-single-section {
+	margin-top: 20px;
+}
+.app-video {
+	max-width: 860px;
+	margin: auto;
+	margin-bottom: -60px;
+	padding-top: 20px;
+	background-color: #fff;
+}
+.app-video-list {
+	height: auto !important;
+}
+.mat-list .app-video-list .mat-list-item.mat-list-item-avatar .mat-list-item-content {
+	height: auto !important;
+	padding-bottom: 20px;
+}
+.mat-list .app-video-list .mat-list-item .mat-list-avatar {
+	height: auto !important;
+	width: 200px !important;
+	border-radius: 0;
+}
+.error {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.search-input {
+	position: fixed;
+	top: 10px;
+    left: -70px;
+    width: 100%;
+	background-color: #cc181e;
+    height: 45px;
+    z-index: 99;
+}
+.search-button {
+	position: relative;
+}
+.search-button a {
+	position: absolute;
+    top: 0;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    background-color: #cc181e;
+    color: hsla(0,0%,100%,.87);
+    padding-top: 8px;
+    z-index: 99;
+}
+input.search-form {
+    width: 85%;
+    float: right;
+    height: 25px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    font-size: 16px;
+}
+.search-content {
+	margin-top: 150px;
+}
+.back-to {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 100
+}
+.back-to .mat-mini-fab.mat-accent {
+	background-color: #cc181e;
+	color: hsla(0,0%,100%,.87) !important
+}
+.back-to-video .mat-icon {
+	cursor: pointer;
+}
+.back-to-video span {
+    position: relative;
+    top: -7px;
+    left: 10px;
+}
+/** Material Custom Theme **/
+.primary {
+	background-color: #cc181e;
+	color: hsla(0,0%,100%,.87);
+}
+.app-icon {
+  	position: relative;
+  	top: -3px;
+  	padding: 0 14px;
+}
+.app-spacer {
+  flex: 1 1 auto;
+}
+.menu-action .mat-menu-item {
+	font-size: 14px;
+}
+.menu-action .mat-menu-item .mat-icon{
+	font-size: 18px;
+}
+.loader-overlay {
+    position: fixed;
+    width:100%;
+    top:0;
+    left: 0;
+    opacity: 1;
+    z-index: 500000;
+}
+md-spinner {
+      width: 24px; 
+      height: 24px; 
+      margin: 5px 10px 0px 0px;
+}
+.spinner {
+	text-align: center;
+	padding-top: 60px;
+	margin: auto;
+	clear: both;
+}
+.spinner-search {
+	background-color: #fff;
+	height: 300px;
+}
+.spinner-search-overlay {
+	text-align: center;
+	padding-top: 40px;
+	margin: auto;
+}
+
+@media(max-width: 960px) {
+	input.search-form {
+		width: 80%;
+	}
+	.app-content-section-list-app {
+		width: 340px;
+		margin-bottom: 20px;
+	}
+}
+@media(max-width: 768px) {
+	.app-icon {
+	  	right: 5px;
+	  	top: 3px;
+	}
+	input.search-form {
+		width: 60%;
+		height: 20px;
+	}
+	.app-content-section {
+		padding: 0;
+	}
+	.app-content-section-list {
+		display: block;
+	}
+	.app-content-section-list div {
+		width: 100%;
+	}
+	#app-name h1 {
+		font-size: 30px;
+	    padding-bottom: 15px;
+	}
+	#app-name h2 {
+		font-size: 16px;
+	}
+	.start-section {
+		margin-top: -10px;
+	}
+
+}
+@media(max-width: 667px) {
+	.search-button a {
+		padding-top: 3px;
+		font-size: 25px;
+	}
+	.app-single {
+		margin-top: 430px;
+	}
+	.app-iframe {
+		position:absolute;
+		top: 60px;
+    	left: 0;
+    	right: 0;
+    	overflow: hidden;
+	}
+	.app-iframe iframe {
+		width:100%; 
+		height:100%;
+	}
+}
+
+@media(max-width: 568px) {
+	.app-single {
+		margin-top: 380px;
+	}
+	.app-iframe {
+		top: 56px;
+	}
+}
+
+@media(max-width: 480px) {
+	.app-single {
+		margin-top: 310px;
+	}
+}
+
+@media(max-width: 414px) {
+	.app-single {
+		margin-top: 290px;
+	}
+}
